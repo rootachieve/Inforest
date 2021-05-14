@@ -17,25 +17,39 @@ public class PlayerMove : MonoBehaviour
 
         if (Input.GetKey(KeyCode.RightArrow) && PS.moveAble)//오른쪽 이동
         {
-            if (transform.localScale.x < 0) //방향전환
+            if (!Input.GetKey(KeyCode.LeftArrow))
             {
-                transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
-            }
-            transform.position = new Vector3(transform.position.x + PS.moveSpeed * Time.deltaTime, transform.position.y, transform.position.z);
-            //이동
+                if (transform.localScale.x < 0) //방향전환
+                {
+                    transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+                }
+                transform.position = new Vector3(transform.position.x + PS.moveSpeed * Time.deltaTime, transform.position.y, transform.position.z);
+                //이동
 
-            PS.isMove = true;//이동 중
+                PS.isMove = true;//이동 중
+            }
+            else
+            {
+                PS.isMove = false;
+            }
         }
 
         if (Input.GetKey(KeyCode.LeftArrow) && PS.moveAble)
         {
-            if (transform.localScale.x > 0)
+            if (!Input.GetKey(KeyCode.RightArrow))//오른쪽 이동
             {
-                transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
-            }
-            transform.position = new Vector3(transform.position.x + -PS.moveSpeed * Time.deltaTime, transform.position.y, transform.position.z);
+                if (transform.localScale.x > 0)
+                {
+                    transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+                }
+                transform.position = new Vector3(transform.position.x + -PS.moveSpeed * Time.deltaTime, transform.position.y, transform.position.z);
 
-            PS.isMove = true;
+                PS.isMove = true;
+            }
+            else
+            {
+                PS.isMove = false;
+            }
         }
 
         if (Input.GetKeyUp(KeyCode.LeftArrow))
@@ -60,8 +74,13 @@ public class PlayerMove : MonoBehaviour
         if (collision.gameObject.layer == 6)
         {
             PS.isJump = false;
+            PR.velocity = new Vector2(PR.velocity.x, 0);
         }
+
+        
     }
+
+    
 
     private void OnTriggerStay2D(Collider2D collision)
     {

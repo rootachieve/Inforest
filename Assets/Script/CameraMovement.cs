@@ -8,6 +8,8 @@ public class CameraMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Physics2D.IgnoreLayerCollision(8, 10);
+        Physics2D.IgnoreLayerCollision(8, 9);
         Camera.main.aspect = 16f / 9f; //화면 비율 16대 9로 고정
         Screen.SetResolution(1920, 1080, true); //해상도 1920 1080, 전체화면 true
     }

@@ -8,17 +8,17 @@ public class CameraMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Physics2D.IgnoreLayerCollision(8, 10);
-        Physics2D.IgnoreLayerCollision(8, 9);
-        Camera.main.aspect = 16f / 9f; //화면 비율 16대 9로 고정
-        Screen.SetResolution(1920, 1080, true); //해상도 1920 1080, 전체화면 true
+        Physics2D.IgnoreLayerCollision(8, 10);//Monster and Player Not Conflicting
+        Physics2D.IgnoreLayerCollision(8, 9);//Monster and PlayerSide Not Conflicting
+        Camera.main.aspect = 16f / 9f; //Screen Ratio 16 to 9 Fixed
+        Screen.SetResolution(1920, 1080, true); //Resolution 1920×1080 Full Screen = true
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         transform.position = Vector3.Lerp(transform.position, new Vector3(Player.transform.position.x, Player.transform.position.y, CameraZ), Time.deltaTime * 1f);
-        //부드러운 목표 주적
+        //Smooth player tracking
     }
 
 }

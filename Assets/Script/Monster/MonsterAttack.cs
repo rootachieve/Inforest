@@ -18,9 +18,11 @@ public class MonsterAttack : MonoBehaviour
     {
         if (collision.gameObject.layer == 10)//If the player is in the monster's hit point.
         {
+            Debug.Log(PS.health+" "+ MS.health+" "+ collision.gameObject.GetComponent<PlayerHit>().invincibility);
             if (collision.gameObject.GetComponent<PlayerHit>().invincibility <= 0 && PS.health > 0 && MS.health > 0)
             {//If a player has not invincible ,if the monster health is above zero, and the player health is above zero
                 PS.moveAble = false; //Can't move because it's under attack.
+                Debug.Log("¥Í¿Ω1");
                 PS.health -= MS.str; //health reduce
                 collision.gameObject.GetComponent<PlayerHit>().invincibility = 120f;//player invincibility (2 sec)
 

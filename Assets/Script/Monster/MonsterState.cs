@@ -10,5 +10,8 @@ public class MonsterState : MonoBehaviour
     public bool moveAble = true;
     public bool death = false;
     public bool isAttack=false;
+    public bool isMove = false;
+    public float moveSpeed;
+    public float jumpPower;
     
 }

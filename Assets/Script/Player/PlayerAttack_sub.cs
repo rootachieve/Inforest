@@ -20,6 +20,7 @@ public class PlayerAttack_sub : MonoBehaviour
             if (collision.gameObject.GetComponent<MonsterHit>().invincibility <= 0 && collision.gameObject.GetComponent<MonsterState>().health > 0 && PS.health>0)
             {//If a monster has not invincible ,if the monster health is above zero, and the player health is above zero
                 collision.gameObject.GetComponent<MonsterState>().health -= PS.str;//monster health reduce
+                collision.gameObject.GetComponent<MonsterState>().isMove = false;
                 collision.gameObject.GetComponent<MonsterHit>().invincibility = 60f;//monster invincibility (1 sec)
                 if (PT.position.x > collision.gameObject.GetComponent<Transform>().position.x) //Relative Position of Players and Monsters
                 {

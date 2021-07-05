@@ -21,4 +21,20 @@ public class CameraMovement : MonoBehaviour
         //Smooth player tracking
     }
 
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.layer == 8)
+        {
+            collision.gameObject.transform.GetChild(1).gameObject.SetActive(true);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 8)
+        {
+            collision.gameObject.transform.GetChild(1).gameObject.SetActive(false);
+        }
+    }
 }

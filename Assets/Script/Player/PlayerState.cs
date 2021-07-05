@@ -12,6 +12,7 @@ public class PlayerState : MonoBehaviour
     public bool moveAble = true;
     public bool isJump = false;
     public bool isAttack = false;
+    public bool isRope = false;
     public bool isGameover = false;
 
     public float moveSpeed = 5f;

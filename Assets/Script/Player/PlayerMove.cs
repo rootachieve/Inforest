@@ -12,9 +12,23 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
 
 
+        if (Input.GetKeyDown(KeyCode.RightArrow) && PS.isRope)
+        {
+            if (transform.localScale.x < 0) // Change the scale to negative or positive so that the character is completely flipped.
+            {
+                transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && PS.isRope)
+        {
+            if (transform.localScale.x > 0) // Change the scale to negative or positive so that the character is completely flipped.
+            {
+                transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+            }
+        }
         if (Input.GetKey(KeyCode.RightArrow) && PS.moveAble)//right move if moveable is true
         {
             if (!Input.GetKey(KeyCode.LeftArrow))

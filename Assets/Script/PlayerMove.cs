@@ -15,18 +15,18 @@ public class PlayerMove : MonoBehaviour
         
 
 
-        if (Input.GetKey(KeyCode.RightArrow) && PS.moveAble)//¿À¸¥ÂÊ ÀÌµ¿
+        if (Input.GetKey(KeyCode.RightArrow) && PS.moveAble)//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
         {
             if (!Input.GetKey(KeyCode.LeftArrow))
             {
-                if (transform.localScale.x < 0) //¹æÇâÀüÈ¯
+                if (transform.localScale.x < 0) //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¯
                 {
                     transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
                 }
                 transform.position = new Vector3(transform.position.x + PS.moveSpeed * Time.deltaTime, transform.position.y, transform.position.z);
-                //ÀÌµ¿
+                //ï¿½Ìµï¿½
 
-                PS.isMove = true;//ÀÌµ¿ Áß
+                PS.isMove = true;//ï¿½Ìµï¿½ ï¿½ï¿½
             }
             else
             {
@@ -36,7 +36,7 @@ public class PlayerMove : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftArrow) && PS.moveAble)
         {
-            if (!Input.GetKey(KeyCode.RightArrow))//¿À¸¥ÂÊ ÀÌµ¿
+            if (!Input.GetKey(KeyCode.RightArrow))//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
             {
                 if (transform.localScale.x > 0)
                 {
@@ -54,7 +54,7 @@ public class PlayerMove : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.LeftArrow))
         {
-            PS.isMove = false;//¸ØÃã
+            PS.isMove = false;//ï¿½ï¿½ï¿½ï¿½
         }
 
         if (Input.GetKeyUp(KeyCode.RightArrow))
@@ -62,13 +62,12 @@ public class PlayerMove : MonoBehaviour
             PS.isMove = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.Z) && PS.moveAble && !PS.isJump)//Á¡ÇÁ
+        if (Input.GetKeyDown(KeyCode.Z) && PS.moveAble && !PS.isJump)//ï¿½ï¿½ï¿½ï¿½
         {
             PS.isJump = true;
             PR.AddForce(new Vector2(0,PS.jumpPower),ForceMode2D.Impulse);
         }
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == 6)
@@ -76,12 +75,7 @@ public class PlayerMove : MonoBehaviour
             PS.isJump = false;
             PR.velocity = new Vector2(PR.velocity.x, 0);
         }
-
-        
     }
-
-    
-
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.layer == 6)
@@ -97,4 +91,5 @@ public class PlayerMove : MonoBehaviour
             PS.isJump = true;
         }
     }
+    
 }

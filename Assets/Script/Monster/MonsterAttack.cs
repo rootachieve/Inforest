@@ -10,19 +10,19 @@ public class MonsterAttack : MonoBehaviour
     private Vector2 knockBack_R = new Vector2(4f, 3f);//knockBack to the right
     private Vector2 knockBack_L = new Vector2(-4f, 3f);//knockBack to the left
 
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        OnTriggerStay2D(collision);//call
+        OnTriggerStay2D(collision);
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.layer == 10)//If the player is in the monster's hit point.
         {
-            Debug.Log(PS.health+" "+ MS.health+" "+ collision.gameObject.GetComponent<PlayerHit>().invincibility);
             if (collision.gameObject.GetComponent<PlayerHit>().invincibility <= 0 && PS.health > 0 && MS.health > 0)
             {//If a player has not invincible ,if the monster health is above zero, and the player health is above zero
                 PS.moveAble = false; //Can't move because it's under attack.
-                Debug.Log("¥Í¿Ω1");
+
                 PS.health -= MS.str; //health reduce
                 collision.gameObject.GetComponent<PlayerHit>().invincibility = 120f;//player invincibility (2 sec)
 
@@ -38,4 +38,5 @@ public class MonsterAttack : MonoBehaviour
         }
 
     }
+
 }

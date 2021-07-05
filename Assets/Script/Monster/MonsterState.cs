@@ -13,5 +13,22 @@ public class MonsterState : MonoBehaviour
     public bool isMove = false;
     public float moveSpeed;
     public float jumpPower;
-    
+    public GameObject particle;
+
+    public int Count;
+    private void FixedUpdate()
+    {
+        if (death)
+        {
+            Count++;
+            moveAble = false;
+            particle.SetActive(true);
+            if (Count > 30)
+            {
+                gameObject.SetActive(false);
+            }
+
+        }   
+    }
+
 }

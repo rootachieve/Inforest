@@ -6,57 +6,60 @@ public class MonsterMove_ghost1 : MonoBehaviour
 {
     public MonsterState MS;
     public int Count;
+    public bool inplayer=false;
+    public Transform M;
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         Count++;
-        if (Count <= 120)
+        if (!inplayer)
         {
-            if (MS.moveAble)//left move if moveable is true
+            if (Count <= 120)
             {
-
-                if (transform.localScale.x < 0) // Change the scale to negative or positive so that the character is completely flipped.
+                if (MS.moveAble)//left move if moveable is true
                 {
-                    transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
-                }
-                transform.position = new Vector3(transform.position.x + MS.moveSpeed * Time.deltaTime, transform.position.y, transform.position.z);
-                //move
 
-                MS.isMove = true;//move motion
+                    if (M.localScale.x < 0) // Change the scale to negative or positive so that the character is completely flipped.
+                    {
+                        M.localScale = new Vector3(M.localScale.x * -1, M.localScale.y, M.localScale.z);
+                    }
+                    M.position = new Vector3(M.position.x + MS.moveSpeed * Time.deltaTime, M.position.y, M.position.z);
+                    //move
+
+                    MS.isMove = true;//move motion
+                }
             }
-        }else if (Count <= 180)
-        {
-            MS.isMove = false;
-        }else if (Count <= 300)
-        {
-            if (MS.moveAble)//left move if moveable is true
+            else if (Count <= 180)
             {
-
-                if (transform.localScale.x > 0)//Same as above
-                {
-                    transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
-                }
-                transform.position = new Vector3(transform.position.x + -MS.moveSpeed * Time.deltaTime, transform.position.y, transform.position.z);
-
-                MS.isMove = true;
-
+                MS.isMove = false;
             }
-        }else if (Count <= 360)
-        {
-            MS.isMove = false;
-        }
-        else
-        {
-            Count = 0;
+            else if (Count <= 300)
+            {
+                if (MS.moveAble)//left move if moveable is true
+                {
+
+                    if (M.localScale.x > 0)//Same as above
+                    {
+                        M.localScale = new Vector3(M.localScale.x * -1, M.localScale.y, M.localScale.z);
+                    }
+                    M.position = new Vector3(M.position.x + -MS.moveSpeed * Time.deltaTime, M.position.y, M.position.z);
+
+                    MS.isMove = true;
+
+                }
+            }
+            else if (Count <= 360)
+            {
+                MS.isMove = false;
+            }
+            else
+            {
+                Count = 0;
+            }
         }
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == 6)
@@ -65,4 +68,33 @@ public class MonsterMove_ghost1 : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+
+        if (collision.gameObject.layer == 10)
+        {
+            inplayer = true;
+            if (MS.moveAble)
+            {
+                if (collision.gameObject.GetComponent<Transform>().position.x > M.position.x)
+                {
+                    M.position = new Vector3(M.position.x + MS.moveSpeed * Time.deltaTime, M.position.y, M.position.z);
+                }
+                else
+                {
+                    M.position = new Vector3(M.position.x + -MS.moveSpeed * Time.deltaTime, M.position.y, M.position.z);
+                }
+            }
+        }
+
+
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 10)
+        {
+            inplayer = false;
+        }
+    }
 }

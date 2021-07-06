@@ -7,14 +7,11 @@ public class PlayerMove : MonoBehaviour
     public PlayerState PS;//Player State;
     public Rigidbody2D PR;//player rigidbody
 
-    // Start is called before the first frame update
-
-    // Update is called once per frame
     void Update()
     {
 
 
-        if (Input.GetKeyDown(KeyCode.RightArrow) && PS.isRope)
+        if (Input.GetKeyDown(KeyCode.RightArrow) && PS.isRope)//It's the movement when you're holding the rope.
         {
             if (transform.localScale.x < 0) // Change the scale to negative or positive so that the character is completely flipped.
             {
@@ -22,7 +19,7 @@ public class PlayerMove : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && PS.isRope)
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && PS.isRope)//It's the movement when you're holding the rope.
         {
             if (transform.localScale.x > 0) // Change the scale to negative or positive so that the character is completely flipped.
             {

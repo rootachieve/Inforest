@@ -18,16 +18,11 @@ public class MonsterState : MonoBehaviour
     public int Count;
     private void FixedUpdate()
     {
-        if (death)
+        if (death) //When the monster dies, show the particles and delete them after 0.5 seconds.
         {
-            Count++;
             moveAble = false;
             particle.SetActive(true);
-            if (Count > 30)
-            {
-                gameObject.SetActive(false);
-            }
-
+            Destroy(gameObject, 0.5f);
         }   
     }
 

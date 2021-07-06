@@ -5,7 +5,6 @@ public class CameraMovement : MonoBehaviour
 {
     float CameraZ = -20;
     public GameObject Player;
-    // Start is called before the first frame update
     void Start()
     {
         Physics2D.IgnoreLayerCollision(8, 10);//Monster and Player Not Conflicting
@@ -14,7 +13,6 @@ public class CameraMovement : MonoBehaviour
         Screen.SetResolution(1920, 1080, true); //Resolution 1920¡¿1080 Full Screen = true
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         transform.position = Vector3.Lerp(transform.position, new Vector3(Player.transform.position.x, Player.transform.position.y, CameraZ), Time.deltaTime * 1f);
@@ -26,7 +24,7 @@ public class CameraMovement : MonoBehaviour
     {
         if(collision.gameObject.layer == 8)
         {
-            collision.gameObject.transform.GetChild(1).gameObject.SetActive(true);
+            collision.gameObject.transform.GetChild(1).gameObject.SetActive(true);//Monsters stop moving when they're out of the camera.
         }
     }
 
@@ -34,7 +32,7 @@ public class CameraMovement : MonoBehaviour
     {
         if (collision.gameObject.layer == 8)
         {
-            collision.gameObject.transform.GetChild(1).gameObject.SetActive(false);
+            collision.gameObject.transform.GetChild(1).gameObject.SetActive(false);//Monsters stop moving when they're out of the camera.
         }
     }
 }

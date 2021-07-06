@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MT: {fileID: 8422591681779056893}
   MS: {fileID: -3625706109196683075}
-  PS: {fileID: 1033745908996628136, guid: 9fdfa3f593972c74db0e2d677acd6ae5, type: 3}
+  PS: {fileID: 6379166481247196643, guid: 9fdfa3f593972c74db0e2d677acd6ae5, type: 3}
 --- !u!61 &5849903426844756158
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5031,7 +5031,7 @@ MonoBehaviour:
   death: 0
   isAttack: 0
   isMove: 0
-  moveSpeed: 3
+  moveSpeed: 2
   jumpPower: 0
   particle: {fileID: 5115667257051327088}
   Count: 0

@@ -8,13 +8,11 @@ public class MonsterMove_ghost1 : MonoBehaviour
     public int Count;
     public bool inplayer=false;
     public Transform M;
-    // Start is called before the first frame update
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         Count++;
-        if (!inplayer)
+        if (!inplayer)//If the player isn't in range,
         {
             if (Count <= 120)
             {
@@ -37,7 +35,7 @@ public class MonsterMove_ghost1 : MonoBehaviour
             }
             else if (Count <= 300)
             {
-                if (MS.moveAble)//left move if moveable is true
+                if (MS.moveAble)//right move if moveable is true
                 {
 
                     if (M.localScale.x > 0)//Same as above
@@ -71,7 +69,7 @@ public class MonsterMove_ghost1 : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
 
-        if (collision.gameObject.layer == 10)
+        if (collision.gameObject.layer == 10)//Follow the player if he is in range.
         {
             inplayer = true;
             if (MS.moveAble)

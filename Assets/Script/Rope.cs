@@ -12,25 +12,26 @@ public class Rope : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C) && inPlayer)
+        if (Input.GetKeyDown(KeyCode.C) && inPlayer)//If the player is on the rope and you press the c key
         {
             PS.moveAble = false;
             PS.isRope = true;
             PR.gravityScale = 0;
             PL.transform.position = new Vector3(transform.position.x, PL.transform.position.y, PL.transform.position.z);
             PR.velocity = new Vector2(0, 0);
+            //Secure the player to the rope.
         }
 
-        if (Input.GetKey(KeyCode.UpArrow) && PS.isRope&&!PS.isAttack)
+        if (Input.GetKey(KeyCode.UpArrow) && PS.isRope&&!PS.isAttack)//Going up.
         {
             PL.transform.position = new Vector3(PL.transform.position.x, PL.transform.position.y + 4*Time.deltaTime, PL.transform.position.z);
         }
-        if (Input.GetKey(KeyCode.DownArrow) && PS.isRope && !PS.isAttack)
+        if (Input.GetKey(KeyCode.DownArrow) && PS.isRope && !PS.isAttack)//Step down.
         {
             PL.transform.position = new Vector3(PL.transform.position.x, PL.transform.position.y - 4*Time.deltaTime, PL.transform.position.z);
         }
 
-        if (PS.isRope&&PH.invincibility > 0)
+        if (PS.isRope&&PH.invincibility > 0)//You'll fall if you're attacked.
         {
             PS.moveAble = false;
             PS.isRope = false;
@@ -38,7 +39,7 @@ public class Rope : MonoBehaviour
         }
         
 
-        if (PS.isRope&&Input.GetKeyDown(KeyCode.Z))
+        if (PS.isRope&&Input.GetKeyDown(KeyCode.Z))//Press z to escape and jump.
         {
             PS.moveAble = true;
             PS.isRope = false;
@@ -52,7 +53,7 @@ public class Rope : MonoBehaviour
     {
         if (collision.gameObject.layer == 10)
         {
-            PL = collision.gameObject;
+            PL = collision.gameObject;//It's meaningless.
             PR = collision.gameObject.GetComponent<Rigidbody2D>();
             PH = collision.gameObject.GetComponent<PlayerHit>();
             inPlayer = true;

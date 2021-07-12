@@ -14,7 +14,7 @@ public class PlayerState : MonoBehaviour
     public bool isAttack = false;
     public bool isRope = false;
     public bool isGameover = false;
-
+    public bool isDamage = false;
     public float moveSpeed = 3.5f;
     public float jumpPower = 7f;
     private void Update()
@@ -57,6 +57,10 @@ public class PlayerState : MonoBehaviour
         else
             animator.SetBool("Moveable", false);
 
+        if (isDamage)
+            animator.SetBool("isDamage", true);
+        else
+            animator.SetBool("isDamage", false);
 
     }
 }

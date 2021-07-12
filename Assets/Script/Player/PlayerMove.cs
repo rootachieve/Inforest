@@ -26,7 +26,7 @@ public class PlayerMove : MonoBehaviour
                 transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
             }
         }
-        if (Input.GetKey(KeyCode.RightArrow) && PS.moveAble)//right move if moveable is true
+        if (Input.GetKey(KeyCode.RightArrow) && PS.moveAble&&!PS.isAttack)//right move if moveable is true
         {
             if (!Input.GetKey(KeyCode.LeftArrow))
             {
@@ -45,7 +45,7 @@ public class PlayerMove : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(KeyCode.LeftArrow) && PS.moveAble)//left move if moveable is true
+        if (Input.GetKey(KeyCode.LeftArrow) && PS.moveAble&&!PS.isAttack)//left move if moveable is true
         {
             if (!Input.GetKey(KeyCode.RightArrow))
             {
@@ -73,7 +73,7 @@ public class PlayerMove : MonoBehaviour
             PS.isMove = false;// Same as above
         }
 
-        if (Input.GetKeyDown(KeyCode.Z) && PS.moveAble && !PS.isJump&& PR.velocity.y==0)//jump // if move able is true, not already jump, y-axis velocity  0
+        if (Input.GetKeyDown(KeyCode.Z) && PS.moveAble && !PS.isJump&& PR.velocity.y==0&& !PS.isAttack)//jump // if move able is true, not already jump, y-axis velocity  0
         {
             PS.isJump = true;//jump motion
             PR.AddForce(new Vector2(0,PS.jumpPower),ForceMode2D.Impulse);//AddForce
@@ -86,6 +86,11 @@ public class PlayerMove : MonoBehaviour
         {
             PS.isJump = false;//jump motion stop
             PS.moveAble = true;//Character can move.
+            if (PS.isRope)
+            {
+                PS.isRope = false;
+                PR.gravityScale = 1;
+            }
         }
 
         

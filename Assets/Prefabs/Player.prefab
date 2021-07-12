@@ -139,6 +139,7 @@ MonoBehaviour:
   isAttack: 0
   isRope: 0
   isGameover: 0
+  isDamage: 0
   moveSpeed: 3.5
   jumpPower: 7
 --- !u!50 &6379166481247196572
@@ -217,7 +218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PS: {fileID: 6379166481247196643}
   invincibility: 0
-  S: {fileID: 0}
+  S: {fileID: 8369685357694361937}
   Camera: {fileID: 0}
 --- !u!1 &6379166481259078379
 GameObject:

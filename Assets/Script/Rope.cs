@@ -8,8 +8,10 @@ public class Rope : MonoBehaviour
     public PlayerState PS;
     public Rigidbody2D PR;
     PlayerHit PH;
-    GameObject PL;
+    public GameObject PL;
     // Update is called once per frame
+
+   
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.C) && inPlayer)//If the player is on the rope and you press the c key
@@ -24,14 +26,14 @@ public class Rope : MonoBehaviour
 
         if (Input.GetKey(KeyCode.UpArrow) && PS.isRope&&!PS.isAttack)//Going up.
         {
-            PL.transform.position = new Vector3(PL.transform.position.x, PL.transform.position.y + 4*Time.deltaTime, PL.transform.position.z);
+            PL.transform.position = new Vector3(PL.transform.position.x, PL.transform.position.y + 2*Time.deltaTime, PL.transform.position.z);
         }
         if (Input.GetKey(KeyCode.DownArrow) && PS.isRope && !PS.isAttack)//Step down.
         {
-            PL.transform.position = new Vector3(PL.transform.position.x, PL.transform.position.y - 4*Time.deltaTime, PL.transform.position.z);
+            PL.transform.position = new Vector3(PL.transform.position.x, PL.transform.position.y - 2*Time.deltaTime, PL.transform.position.z);
         }
 
-        if (PS.isRope&&PH.invincibility > 0)//You'll fall if you're attacked.
+        if (PS.isRope&&PS.isDamage)//You'll fall if you're attacked.
         {
             PS.moveAble = false;
             PS.isRope = false;
@@ -53,11 +55,12 @@ public class Rope : MonoBehaviour
     {
         if (collision.gameObject.layer == 10)
         {
-            PL = collision.gameObject;//It's meaningless.
             PR = collision.gameObject.GetComponent<Rigidbody2D>();
             PH = collision.gameObject.GetComponent<PlayerHit>();
             inPlayer = true;
         }
+
+       
     }
     private void OnTriggerExit2D(Collider2D collision)
     {

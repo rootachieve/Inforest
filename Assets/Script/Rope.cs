@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Rope : MonoBehaviour
 {
+    public Animator animator;//animation
     public bool inPlayer = false;
     public PlayerState PS;
     public Rigidbody2D PR;
@@ -24,14 +25,36 @@ public class Rope : MonoBehaviour
             //Secure the player to the rope.
         }
 
+        //(Under)I'm adjusting the movement on the rope for animation.
         if (Input.GetKey(KeyCode.UpArrow) && PS.isRope&&!PS.isAttack)//Going up.
         {
             PL.transform.position = new Vector3(PL.transform.position.x, PL.transform.position.y + 2*Time.deltaTime, PL.transform.position.z);
+            if (!Input.GetKeyUp(KeyCode.DownArrow))
+            {
+                animator.SetInteger("RopeMove", 1);
+            }
+            else
+            {
+                animator.SetInteger("RopeMove", 0);
+            }
         }
-        if (Input.GetKey(KeyCode.DownArrow) && PS.isRope && !PS.isAttack)//Step down.
+        else if (Input.GetKey(KeyCode.DownArrow) && PS.isRope && !PS.isAttack)//Step down.
         {
             PL.transform.position = new Vector3(PL.transform.position.x, PL.transform.position.y - 2*Time.deltaTime, PL.transform.position.z);
+            if (!Input.GetKeyUp(KeyCode.UpArrow))
+            {
+                animator.SetInteger("RopeMove", -1);
+            }
+            else
+            {
+                animator.SetInteger("RopeMove", 0);
+            }
         }
+        else
+        {
+            animator.SetInteger("RopeMove", 0);
+        }
+        //(Upper)I'm adjusting the movement on the rope for animation.
 
         if (PS.isRope&&PS.isDamage)//You'll fall if you're attacked.
         {

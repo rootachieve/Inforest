@@ -30,8 +30,10 @@ public class CameraMovement : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        Debug.Log(collision.gameObject.name);
         if (collision.gameObject.layer == 8)
         {
+           
             collision.gameObject.transform.GetChild(1).gameObject.SetActive(false);//Monsters stop moving when they're out of the camera.
         }
     }

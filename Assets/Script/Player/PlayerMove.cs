@@ -7,6 +7,8 @@ public class PlayerMove : MonoBehaviour
     public PlayerState PS;//Player State;
     public Rigidbody2D PR;//player rigidbody
 
+    public ChatManager manager;
+
     void Update()
     {
 
@@ -77,6 +79,12 @@ public class PlayerMove : MonoBehaviour
         {
             PS.isJump = true;//jump motion
             PR.AddForce(new Vector2(0,PS.jumpPower),ForceMode2D.Impulse);//AddForce
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            PS.moveAble = manager.isAction; // you can't move when the dialog is active
+            manager.Action();
         }
     }
 

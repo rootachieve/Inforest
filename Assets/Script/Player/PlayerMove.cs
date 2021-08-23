@@ -83,7 +83,6 @@ public class PlayerMove : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            PS.moveAble = manager.isAction; // you can't move when the dialog is active
             manager.Action();
         }
     }

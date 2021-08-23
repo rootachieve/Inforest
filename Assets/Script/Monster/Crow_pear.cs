@@ -17,22 +17,32 @@ public class Crow_pear : MonoBehaviour
     public float v;
     public float t;
     public float xv;
-
+    public float Count;
     private void Start()
     {
         start = new Vector3(transform.position.x, transform.position.y, 0);//the initial position of a pear
     }
- 
+
     void Update()
     {
-        if (!isDrop)
-        {//Based on the position of the character and the position of the crow, it is determined what speed to throw the pear at.
-            isDrop = true;
-             doubleV = 19.6f * (transform.position.y - PL.position.y);//2as = v^2-v0^2
-            v = Mathf.Sqrt(Mathf.Abs(doubleV));//sqrt(v^2) = v,  abs(-v) = v
-            t = v / 9.8f;//v=at , t=v/a
-           xv = (transform.position.x - PL.position.x) / t;
-            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(-xv, 0);//velocity
+        Count -= Time.deltaTime;
+        if (Count > 0 && !isDrop)
+        {
+            gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
+        }
+        if (!isDrop && Count <= 0)
+        {
+            {//Based on the position of the character and the position of the crow, it is determined what speed to throw the pear at.
+                gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
+                gameObject.SetActive(true);
+                Count = 2.5f;
+                isDrop = true;
+                doubleV = 19.6f * (transform.position.y - PL.position.y);//2as = v^2-v0^2
+                v = Mathf.Sqrt(Mathf.Abs(doubleV));//sqrt(v^2) = v,  abs(-v) = v
+                t = v / 9.8f;//v=at , t=v/a
+                xv = (transform.position.x - PL.position.x) / t;
+                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(-xv, 0);//velocity
+            }
         }
     }
 

@@ -75,6 +75,7 @@ public class Mouse : MonoBehaviour
                 U.SetActive(false);
                 N.SetActive(false);
                 fail = true;
+                //clear = true;
             }
 
             if (clear)
@@ -82,7 +83,7 @@ public class Mouse : MonoBehaviour
                 Time.timeScale = 1;
                 isQte = false;
                 setting = false;
-                C.orthographicSize = 11.5f;
+                C.orthographicSize = 7f;
                 mouse.health = 0;//mouse death
             }
         }

@@ -13,21 +13,7 @@ public class PlayerMove : MonoBehaviour
     {
 
 
-        if (Input.GetKeyDown(KeyCode.RightArrow) && PS.isRope)//It's the movement when you're holding the rope.
-        {
-            if (transform.localScale.x < 0) // Change the scale to negative or positive so that the character is completely flipped.
-            {
-                transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && PS.isRope)//It's the movement when you're holding the rope.
-        {
-            if (transform.localScale.x > 0) // Change the scale to negative or positive so that the character is completely flipped.
-            {
-                transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
-            }
-        }
+     
         if (Input.GetKey(KeyCode.RightArrow) && PS.moveAble&&!PS.isAttack)//right move if moveable is true
         {
             if (!Input.GetKey(KeyCode.LeftArrow))

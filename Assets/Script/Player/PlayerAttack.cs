@@ -10,7 +10,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X) && !PS.isAttack && cool <= 0&&(!PS.isJump||PS.isRope)) //If you hit the attack key, cool time is below zero, and you're not already attacking.
+        if (Input.GetKeyDown(KeyCode.X) && !PS.isAttack && cool <= 0&&!PS.isJump) //If you hit the attack key, cool time is below zero, and you're not already attacking.
         {
             cool = 60f; // cool time is 60(1 sec)
             

@@ -28,10 +28,10 @@ public class Crow_pear : MonoBehaviour
         if (!isDrop)
         {//Based on the position of the character and the position of the crow, it is determined what speed to throw the pear at.
             isDrop = true;
-             doubleV = 19.6f * (transform.position.y - PL.position.y);//2as = v^2-v0^2
+            doubleV = 19.6f * (transform.position.y - PL.position.y);//2as = v^2-v0^2
             v = Mathf.Sqrt(Mathf.Abs(doubleV));//sqrt(v^2) = v,  abs(-v) = v
             t = v / 9.8f;//v=at , t=v/a
-           xv = (transform.position.x - PL.position.x) / t;
+            xv = (transform.position.x - PL.position.x) / t;
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(-xv, 0);//velocity
         }
     }

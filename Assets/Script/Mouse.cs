@@ -69,7 +69,7 @@ public class Mouse : MonoBehaviour
                 Time.timeScale = 1;
                 isQte = false;
                 setting = false;
-                C.orthographicSize = 11.5f;//zoom out
+                C.orthographicSize = 7f;//zoom out
                 M.GetComponent<MonsterState>().moveSpeed = 4f;//The mouse didn't disappear and turned around.
                 G.SetActive(false);
                 U.SetActive(false);

@@ -1,7 +1,43 @@
 fileFormatVersion: 2
 guid: c2d7217fc9b80f545ad04b0cad0b7a28
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -8839347273334632733
+    second: runghost_catch_0
+  - first:
+      213: 4948670640098415965
+    second: runghost_catch_1
+  - first:
+      213: -3227089964477543596
+    second: runghost_catch_2
+  - first:
+      213: 9183484617577624109
+    second: runghost_catch_3
+  - first:
+      213: -5961176485992409214
+    second: runghost_catch_4
+  - first:
+      213: 6489144623170399310
+    second: runghost_catch_5
+  - first:
+      213: 1767905740093852834
+    second: runghost_catch_6
+  - first:
+      213: 2207160145231773636
+    second: runghost_catch_7
+  - first:
+      213: 487618466589401947
+    second: runghost_catch_8
+  - first:
+      213: -159341450882237032
+    second: runghost_catch_9
+  - first:
+      213: 3084646704528833485
+    second: runghost_catch_10
+  - first:
+      213: -2160198361213310832
+    second: runghost_catch_11
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,7 +77,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -75,9 +111,243 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: runghost_catch_0
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 59
+        width: 325
+        height: 551
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ee429edc74545580800000000000000
+      internalID: -8839347273334632733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: runghost_catch_1
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 59
+        width: 326
+        height: 551
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d55987d5ab53da440800000000000000
+      internalID: 4948670640098415965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: runghost_catch_2
+      rect:
+        serializedVersion: 2
+        x: 1075
+        y: 59
+        width: 341
+        height: 551
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45b861176c21733d0800000000000000
+      internalID: -3227089964477543596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: runghost_catch_3
+      rect:
+        serializedVersion: 2
+        x: 1529
+        y: 59
+        width: 364
+        height: 551
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d227afe7a9a427f70800000000000000
+      internalID: 9183484617577624109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: runghost_catch_5
+      rect:
+        serializedVersion: 2
+        x: 2041
+        y: 59
+        width: 369
+        height: 551
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4c253067a21e0a50800000000000000
+      internalID: 6489144623170399310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: runghost_catch_7
+      rect:
+        serializedVersion: 2
+        x: 2584
+        y: 59
+        width: 372
+        height: 551
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cf70f2457861ae10800000000000000
+      internalID: 2207160145231773636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: runghost_catch_8
+      rect:
+        serializedVersion: 2
+        x: 3140
+        y: 59
+        width: 377
+        height: 548
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b536bfe696e54c600800000000000000
+      internalID: 487618466589401947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: runghost_catch_9
+      rect:
+        serializedVersion: 2
+        x: 3660
+        y: 59
+        width: 375
+        height: 569
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89d3b2e6bc7e9cdf0800000000000000
+      internalID: -159341450882237032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: runghost_catch_10
+      rect:
+        serializedVersion: 2
+        x: 4198
+        y: 59
+        width: 369
+        height: 569
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcb3509a5dddeca20800000000000000
+      internalID: 3084646704528833485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: runghost_catch_11
+      rect:
+        serializedVersion: 2
+        x: 4765
+        y: 59
+        width: 362
+        height: 582
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 098ef73290f6502e0800000000000000
+      internalID: -2160198361213310832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

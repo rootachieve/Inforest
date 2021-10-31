@@ -7,6 +7,7 @@ public class CameraMovement : MonoBehaviour
     public GameObject Player;
     void Start()
     {
+        Physics2D.IgnoreLayerCollision(8, 8);
         Physics2D.IgnoreLayerCollision(8, 10);//Monster and Player Not Conflicting
         Physics2D.IgnoreLayerCollision(8, 9);//Monster and PlayerSide Not Conflicting
         Camera.main.aspect = 16f / 9f; //Screen Ratio 16 to 9 Fixed

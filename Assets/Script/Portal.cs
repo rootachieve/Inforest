@@ -8,6 +8,7 @@ public class Portal : MonoBehaviour
     bool isIn = false;
     public Collider2D player;
     public int cooltime;
+    //public FadeInOut FadeInOut;
     void Update()
     {
         if (cooltime > 0)
@@ -16,6 +17,7 @@ public class Portal : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.C) && isIn == true && transform.GetComponent<PortalState>().isOpen && cooltime == 0)
         {
+            //FadeInOut.Fadeout();
             player.transform.position = outObj.transform.position;
             outObj.GetComponent<Portal>().cooltime = 60;
 

@@ -15,6 +15,8 @@ public class Catch : MonoBehaviour
     public bool isCatch = false;
     public float count = 60f;
     public float CatchCount = 0f;
+
+    int bef=0;
     // Start is called before the first frame update
     // Update is called once per frame
     void Update()
@@ -42,10 +44,12 @@ public class Catch : MonoBehaviour
         {
             if (CatchCount <= 0)
             {
-                CatchCount = 240f;
+                CatchCount = 720f;
+                bef = 0;
+                Ptransform.position = new Vector3(Mtransform.position.x,Mtransform.position.y-1,Mtransform.position.z);
             }
 
-            if (CatchCount < 120)
+            if (CatchCount < 400)
             {
                 PS.moveAble = true;
                 PS.isJump = false;
@@ -53,7 +57,7 @@ public class Catch : MonoBehaviour
                 spriteRenderer.sortingOrder = 1;
                 isCatch = false;
                 animator.SetBool("isCatch", false);
-                count = 240f;
+                count = 400f;
                 isActive = false;
             }
         }
@@ -61,34 +65,87 @@ public class Catch : MonoBehaviour
         if (CatchCount > 0)
         {
             CatchCount -= 1;
+            if (CatchCount >= 400)
+            {
+                switch (bef)
+                {
+                    case 0:
+                        if (CatchCount <= 720)
+                        {
+                            bef++;
+                            PS.health--;
+                        }
+                        break;
+                    case 1:
+                        if (CatchCount <= 656)
+                        {
+                            bef++;
+                            PS.health--;
+                        }
+                        break;
+                    case 2:
+                        if (CatchCount <= 592)
+                        {
+                            bef++;
+                            PS.health--;
+                        }
+                        break;
+                    case 3:
+                        if (CatchCount <= 528)
+                        {
+                            bef++;
+                            PS.health--;
+                        }
+                        break;
+                    case 4:
+                        if (CatchCount <= 464)
+                        {
+                            bef++;
+                            PS.health--;
+                        }
+                        break;
+
+                }
+            }
+            
         }
         if (Ptransform.position.x < Mtransform.position.x)
         {
-            if ((Ptransform.localScale.x > 0 && Mtransform.localScale.x > 0) || (Ptransform.localScale.x < 0 && Mtransform.localScale.x < 0))
+            if (Ptransform.localScale.x > 0)
             {
-                isActive = false;
                 animator.SetBool("isActive", false);
-                count = 60f;
+                if (count <= 240)
+                {
+                    isActive = false;
+                  
+                    count = 240f;
+                }
             }
             else
             {
                 if (!isActive)
                 {
                     count -= 1;
+                    
                     if (count < 0)
                     {
                         isActive = true;
                         animator.SetBool("isActive", true);
+
                     }
                 }
             }
         }else if(Ptransform.position.x >= Mtransform.position.x)
         {
-            if ((Ptransform.localScale.x > 0 && Mtransform.localScale.x < 0) || (Ptransform.localScale.x < 0 && Mtransform.localScale.x > 0))
+            if (Ptransform.localScale.x < 0)
             {
-                isActive = false;
                 animator.SetBool("isActive", false);
-                count = 60f;
+                if (count <= 240)
+                {
+                    isActive = false;
+                   
+                    count = 240f;
+                }
             }
             else
             {
@@ -114,9 +171,9 @@ public class Catch : MonoBehaviour
             {
                 Prigid.gravityScale = 0;
                 PS.moveAble = false;
+                Prigid.velocity = new Vector2(0, 0);
                 PS.isDamage = true;
                 spriteRenderer.sortingOrder = 3;
-                Mtransform.position = new Vector3(Ptransform.position.x, Ptransform.position.y, Ptransform.position.z);
                 isCatch = true;
                 animator.SetBool("isCatch", true);
             }

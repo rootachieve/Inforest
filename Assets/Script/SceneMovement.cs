@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneMovement : MonoBehaviour
 {
+    public GameObject Select;
+    public GameObject Main;
     public void ChangeGameScene()
     {
         SceneManager.LoadScene("Stage 0");
@@ -13,10 +15,21 @@ public class SceneMovement : MonoBehaviour
     {
         Application.Quit();
     }
+    public void StartGame()
+    {
+        Main.SetActive(false);
+        Select.SetActive(true);
+    }
+    public void BacktoTitle()
+    {
+        Main.SetActive(true);
+        Select.SetActive(false);
+    }
     // Start is called before the first frame update
     void Start()
     {
-        
+        Main.SetActive(true);
+        Select.SetActive(false);
     }
 
     // Update is called once per frame
